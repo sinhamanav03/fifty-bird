@@ -2,6 +2,9 @@
     GD50
     Flappy Bird Remake
 
+    bird3
+    "The Gravity Update"
+
     Author: Colton Ogden
     cogden@cs50.harvard.edu
 
@@ -82,15 +85,12 @@ function love.update(dt)
     -- scroll ground by preset speed * dt, looping back to 0 after the screen width passes
     groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt) 
         % VIRTUAL_WIDTH
+
+    bird:update(dt)
 end
 
 function love.draw()
     push:start()
-    
-    -- here, we draw our images shifted to the left by their looping point; eventually,
-    -- they will revert back to 0 once a certain distance has elapsed, which will make it
-    -- seem as if they are infinitely scrolling. choosing a looping point that is seamless
-    -- is key, so as to provide the illusion of looping
 
     -- draw the background at the negative looping point
     love.graphics.draw(background, -backgroundScroll, 0)
