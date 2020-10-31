@@ -2,8 +2,8 @@
     GD50
     Flappy Bird Remake
 
-    bird8
-    "The State Machine Update"
+    bird9
+    "The Score Update"
 
     Author: Colton Ogden
     cogden@cs50.harvard.edu
@@ -36,6 +36,7 @@ require 'PipePair'
 require 'StateMachine'
 require 'states/BaseState'
 require 'states/PlayState'
+require 'states/ScoreState'
 require 'states/TitleScreenState'
 
 -- physical screen dimensions
@@ -92,6 +93,7 @@ function love.load()
     gStateMachine = StateMachine {
         ['title'] = function() return TitleScreenState() end,
         ['play'] = function() return PlayState() end,
+        ['score'] = function() return ScoreState() end
     }
     gStateMachine:change('title')
 
